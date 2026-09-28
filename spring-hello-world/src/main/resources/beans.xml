@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean class="java.lang.String">
+        <constructor-arg value="Welcome to Spring Framework"/>
+    </bean>
+
+    <bean class="ie.pt.Message" id="Message1">
+        <constructor-arg value="Message 1"/>
+        <constructor-arg value="Welcome to Spring Framework!"/>
+    </bean>
+
+    <bean class="ie.pt.Message" id="Message2">
+        <constructor-arg value="Message 2"/>
+        <constructor-arg value="Welcome to Spring Framework!"/>
+    </bean>
+</beans>
