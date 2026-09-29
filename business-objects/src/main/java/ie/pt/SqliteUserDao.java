@@ -101,8 +101,42 @@ public class SqliteUserDao implements UserDao {
     }
 
     @Override
-    public User updateUser(User user) {
-        return null;
+    public User updateUser(User u) {
+
+        /*
+        String sql = "UPDATE users " +
+                "SET " +
+                "name = '" + u.getName() + "', " +
+                "email = '"+ u.getEmail() + "'," +
+                "active = " + (u.isActive() ? 1 : 0) +
+                " WHERE id = " + u.getId();
+        */
+
+        String sql = """
+                        UPDATE users 
+                        SET name = ?,
+                        email = ?,
+                        active = ?
+                        WHERE id = ?""";
+
+        //System.out.println(sql);
+        try {
+            //Statement stmt = conn.createStatement();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            stmt.setString(1, u.getName());
+            stmt.setString(2, u.getEmail());
+            stmt.setBoolean(3, u.isActive());
+            stmt.setInt(4, u.getId());
+            int n = stmt.executeUpdate();
+            if (n == 0) {
+                // no records updated
+                // TODO - is this an error
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return u;
     }
 
     @Override

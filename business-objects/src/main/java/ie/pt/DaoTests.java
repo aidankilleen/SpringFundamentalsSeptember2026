@@ -22,14 +22,11 @@ public class DaoTests {
 
         System.out.println(addedUser);
 
-/*
+
 
         user.setName("Changed");
 
         dao.updateUser(user);
-        dao.deleteUser(1003);
-
-         */
         System.out.println(dao.getUsers());
     }
 }
