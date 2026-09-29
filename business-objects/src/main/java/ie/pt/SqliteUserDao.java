@@ -50,6 +50,26 @@ public class SqliteUserDao implements UserDao {
         return users;
     }
 
+    @Override
+    public User addUser(User user) {
+        return null;
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return null;
+    }
+
+    @Override
+    public boolean deleteUser(int id) {
+        return false;
+    }
+
+    @Override
+    public User getUser(int id) {
+        return null;
+    }
+
     public void close() {
         try {
             conn.close();
