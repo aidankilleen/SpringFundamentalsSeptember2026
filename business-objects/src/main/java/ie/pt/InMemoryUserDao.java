@@ -2,11 +2,13 @@ package ie.pt;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
+@Repository
+@Primary
 public class InMemoryUserDao implements UserDao {
 
     List<User> users = new ArrayList<User>();

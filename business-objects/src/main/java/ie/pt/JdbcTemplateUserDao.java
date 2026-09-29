@@ -1,37 +1,30 @@
 package ie.pt;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.PreparedStatement;
 import java.util.List;
 
+@Repository
 public class JdbcTemplateUserDao implements UserDao {
 
+    @Autowired
     JdbcTemplate jdbc;
+
+    @Autowired
     RowMapper<User> mapper;
 
     public JdbcTemplateUserDao() {
 
-        // initialise the jdbc
-        DriverManagerDataSource ds = new DriverManagerDataSource();
-        ds.setDriverClassName("org.sqlite.JDBC");
-        ds.setUrl("jdbc:sqlite:C:\\work\\training\\java\\users.db");
 
-        jdbc = new JdbcTemplate(ds);
-
-        // initialise the mapper
-        mapper = (rs, rowNum)-> {
-            return new User(
-                    rs.getInt("id"),
-                    rs.getString("name"),
-                    rs.getString("email"),
-                    rs.getBoolean("active")
-            );
-        };
     }
 
     @Override

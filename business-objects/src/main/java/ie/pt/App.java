@@ -14,7 +14,7 @@ import java.util.List;
 public class App 
 {
     public static void main( String[] args ) throws SQLException {
-        System.out.println( "Business Objects" );
+
 
         // enterprise coding concepts
         // there may be more than one object that provides a certain set of functions
@@ -38,19 +38,48 @@ public class App
         ApplicationContext ctx
                 = new AnnotationConfigApplicationContext(AppConfig.class);
 
-        // UserDao dao = ctx.getBean(UserDao.class);
+        /*
+        UserDao dao = ctx.getBean(UserDao.class);
 
+        dao.getUsers().forEach(System.out::println);
+        */
         // enterprise sw don't instantiate objects
         // get them from the framework
         // UserService svc = new UserService(dao);
 
+        String title = ctx.getEnvironment().getProperty("app.title");
+
+        System.out.println(title);
+
+
         UserService svc = ctx.getBean(UserService.class);
+
+
+
 
         List<User> users = svc.getActiveUsers();
 
         for (User u : users) {
             System.out.println(u);
         }
+
+
+        // this shows clearly WHY having spring create the objects
+        // is a good idea and the popularity of the "Inversion of Control"
+        // and dependency injection
+
+        // UserService
+        // UserDao
+        //  JdbcTemplateUserDao
+        // JdbcTemplate
+        // DriverManagerDataSource
+        // connection string
+
+
+
+
+
+
 
         //dao.close();
         /*

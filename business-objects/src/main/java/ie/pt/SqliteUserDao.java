@@ -1,26 +1,59 @@
 package ie.pt;
 
+import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component
-@Primary
+@Repository
 public class SqliteUserDao implements UserDao {
 
-    String url = "jdbc:sqlite:C:\\work\\training\\java\\users.db";
+    @Value("${database.url}")
+    String url; // = "jdbc:sqlite:C:\\work\\training\\java\\users.db";
+
+    @Autowired
     Connection conn;
 
     public SqliteUserDao() {
 
+        // NB:
+        // we can't use url in the constructor
+        // spring is going to instantiate the bean
+        // only then can it do the injection of
+        // objects and properties
+
+        // it is a very common error to forget this!
+        /*try {
+            conn = DriverManager.getConnection(url);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }*/
+    }
+
+    // using @PostConstruct
+    // identifies a method to be called when spring has the
+    // object ready (all injections are complete)
+
+    @PostConstruct
+    public void init() {
+        System.out.println("@PostConstruct called");
+
+        // remember if we can we should get Spring
+        // to instantiate our objects  for us.
+        /*
         try {
             conn = DriverManager.getConnection(url);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+        */
     }
 
     public List<User> getUsers() {
