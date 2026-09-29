@@ -22,8 +22,6 @@ public class DaoTests {
 
         System.out.println(addedUser);
 
-
-
         user.setName("Changed");
 
         dao.updateUser(user);
