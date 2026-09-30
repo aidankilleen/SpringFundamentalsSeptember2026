@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1 th:text="${title}">Home Page</h1>
+
+    <ul>
+        <li
+            th:each="name : ${names}"
+            th:text="${name}">
+        </li>
+    </ul>
+
+    <hr>
+    <p th:text="${user}"></p>
+
+    <table>
+        <tr>
+            <td>Id:</td>
+            <td th:text="${user.id}"></td>
+        </tr>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${user.name}"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td th:text="${user.getEmail()}"></td>
+        </tr>
+
+        <tr th:if="${user.active}" style="background-color:green">
+            <td colspan="2">Active</td>
+        </tr>
+
+        <tr th:unless="${user.active}" style="background-color:red">
+            <td colspan="2">INACTIVE</tdcolspan>
+        </tr>
+
+        <tr th:style="${user.active} ? 'background-color:green' : 'background-color:red'">
+            <td th:if="${user.active}">Active</td>
+            <td th:unless="${user.active}">Inactive</td>
+        </tr>
+
+    </table>
+</body>
+</html>

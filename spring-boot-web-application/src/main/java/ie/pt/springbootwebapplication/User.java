@@ -1,4 +1,4 @@
-package ie.pt.springboothelloworld;
+package ie.pt.springbootwebapplication;
 
 import java.util.Objects;
 
