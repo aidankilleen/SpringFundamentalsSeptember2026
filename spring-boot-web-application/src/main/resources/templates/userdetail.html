@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{fragments/bootstrap :: css}"/>
+</head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"/>
+
+    <h1>User Detail</h1>
+
+    <table class="table">
+        <tr>
+            <td>Id</td><td th:text="${user.id}"></td>
+        </tr>
+        <tr>
+            <td>Name</td><td th:text="${user.name}"></td>
+        </tr>
+        <tr>
+            <td>Email</td><td th:text="${user.email}"></td>
+        </tr>
+        <tr>
+            <td>Active</td><td th:text="${user.active}"></td>
+        </tr>
+        </tr>
+    </table>
+
+
+
+    <th:block th:replace="~{fragments/bootstrap :: js}"/>
+</body>
+</html>
