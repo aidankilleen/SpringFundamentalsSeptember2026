@@ -1,4 +1,4 @@
-package ie.pt.springboothelloworld;
+package ie.pt.springbootwebapplication;
 
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;

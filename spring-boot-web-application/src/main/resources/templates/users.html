@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{fragments/bootstrap :: css}"/>
+</head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"/>
+
+    <h1 th:text="${title}">Users</h1>
+
+<!-- display the users in a table -->
+<!-- using th:each and other th: attributes -->
+
+<table class="table">
+    <thead>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Active</th>
+    </thead>
+    <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.name}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.active} ? 'Active' :'Inactive'"></td>
+        </tr>
+        </tr>
+    </tbody>
+</table>
+
+    <th:block th:replace="~{fragments/bootstrap :: js}"/>
+</body>
+</html>

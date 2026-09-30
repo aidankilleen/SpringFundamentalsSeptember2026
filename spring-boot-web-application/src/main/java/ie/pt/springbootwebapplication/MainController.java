@@ -2,6 +2,7 @@ package ie.pt.springbootwebapplication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,7 +21,8 @@ public class MainController {
 
     private static final Logger log = LoggerFactory.getLogger(MainController.class);
 
-    @GetMapping("/home")
+
+    @GetMapping("/")
     public String home(Model model) {
         log.info("/home requested");
 
@@ -31,16 +33,24 @@ public class MainController {
         names.add("dan");
 
         model.addAttribute("title",
-                "Title From Controller");
+                "Home Page");
 
         model.addAttribute("names", names);
 
         User u = new User(1, "Alice", "alice@gmail.com", true);
-
         model.addAttribute("user", u);
-
-
-
         return "home";
     }
+
+    @GetMapping("/about")
+    public String about() {
+        return "about";
+    }
+
+    @GetMapping("/contact")
+    public String contact() {
+        return "contact";
+    }
+
+
 }

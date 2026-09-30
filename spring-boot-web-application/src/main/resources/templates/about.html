@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{fragments/bootstrap :: css}"/>
+</head>
+<body>
+<!-- D.R.Y.
+Don't repeat yourself
+-->
+    <nav th:replace="~{fragments/navbar :: navbar}"/>
+
+    <h1>About</h1>
+
+    <th:block th:replace="~{fragments/bootstrap :: js}"/>
+</body>
+</html>

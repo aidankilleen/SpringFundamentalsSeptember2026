@@ -6,8 +6,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <th:block th:replace="~{fragments/bootstrap :: css}"/>
 </head>
 <body>
+    <nav th:replace="~{fragments/navbar :: navbar}"/>
+<!--
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/contact">Contact Us</a> |
+        <a href="/users">Users</a> |
+    </nav>
+-->
     <h1 th:text="${title}">Home Page</h1>
 
     <ul>
@@ -48,5 +58,7 @@
         </tr>
 
     </table>
+
+    <th:block th:replace="~{fragments/bootstrap :: js}"/>
 </body>
 </html>
