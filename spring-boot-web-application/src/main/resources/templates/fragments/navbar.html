@@ -56,6 +56,15 @@
                 </li>
                 <li class="nav-item">
                     <a
+                            class="nav-link"
+                            href="/clientsideusers"
+                            th:classappend="${menuitem=='clientsideusers'} ? 'active'"
+                    >
+                        Client Side Users
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a
                         class="nav-link"
                         href="/help"
                         th:classappend="${menuitem=='help'} ? 'active'"
