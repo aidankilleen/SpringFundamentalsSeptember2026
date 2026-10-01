@@ -1,0 +1,26 @@
+### GET request to example server
+GET https://api.acodingtutor.com/users/1055
+
+###
+DELETE https://api.acodingtutor.com/members/103
+
+###
+POST https://api.acodingtutor.com/members
+Content-Type: application/json
+
+{
+    "name": "Aidan",
+    "email": "aidan.killeen@gmail.com",
+    "active": true
+}
+
+###
+PUT https://api.acodingtutor.com/members/115
+Content-Type: application/json
+
+{
+  "name": "Changed Aidan",
+  "email": "changed.aidan.killeen@gmail.com",
+  "active": false,
+  "id": 115
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Client Side Users</h1>
+
+    <table id="tblUsers">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button onclick="onClick()">Press Me</button>
+
+    <button onclick="onFetchData()">Get Data</button>
+    <script>
+
+        function onFetchData() {
+
+            let url = "http://localhost:8080/api/users";
+
+            fetch(url)
+                .then(response => response.json())
+                .then(users => {
+
+                    let html = users.map(user=>`<tr>
+                                                    <td>${user.id}</td>
+                                                    <td>${user.name}</td>
+                                                    <td>${user.email}</td>
+                                                    <td>${user.active ? 'Active' : 'Inactive'}</td>
+                                                </tr>`)
+                        .join('');
+
+                    document.querySelector("#tblUsers tbody").innerHTML = html;
+                });
+        }
+
+
+        // javascript
+        // runs in the browser
+        // 3 main uses:
+        // dom manipulation
+        // event handling
+        // ajax calls
+
+        function onClick() {
+            alert("is this working?");
+        }
+
+    </script>
+</body>
+</html>
