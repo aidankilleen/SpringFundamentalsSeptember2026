@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotBlank;
 import java.util.Objects;
 
 public class User {
-    int id;
+    Integer id;
 
     @NotBlank
     String name;
@@ -20,18 +20,18 @@ public class User {
     public User() {
 
     }
-    public User(int id, String name, String email, boolean active) {
+    public User(Integer id, String name, String email, boolean active) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.active = active;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

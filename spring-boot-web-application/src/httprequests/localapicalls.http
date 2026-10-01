@@ -1,0 +1,30 @@
+### GET request to example server
+GET http://localhost:8080/api/users
+
+###
+GET http://localhost:8080/api/users/9999
+
+###
+DELETE http://localhost:8080/api/users/1039
+
+###
+
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+  "name": "New User",
+  "email": "new.user@gmail.com",
+  "active": false
+}
+
+###
+PUT http://localhost:8080/api/users/1033
+Content-Type: application/json
+
+{
+  "id": 1033,
+  "name": "Zoe",
+  "email": "zoe@gmail.com",
+  "active": false
+}
