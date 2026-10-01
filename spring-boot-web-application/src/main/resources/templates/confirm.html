@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <th:block th:replace="~{fragments/bootstrap :: css}"/>
+</head>
+<body>
+    <nav th:replace="~{fragments/navbar :: navbar}"/>
+
+    <form
+            action="/users/delete/{id}"
+            method="POST">
+        <h1>Are you sure?</h1>
+
+        <p th:text="'Delete user ' + ${id}"></p>
+        <input type="hidden" th:value="${id}" name="id" READONLY>
+
+        <input class="btn btn-danger" type="submit" value="Ok"/>
+
+        <a class="btn btn-secondary" href="/users">Cancel</a>
+    </form>
+    <th:block th:replace="~{fragments/bootstrap :: js}"/>
+</body>
+</html>

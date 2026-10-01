@@ -15,7 +15,7 @@
 
 <!-- display the users in a table -->
 <!-- using th:each and other th: attributes -->
-
+<a class="btn btn-success" href="/users/add">Add User</a>
 <table class="table">
     <thead>
         <th>Id</th>
@@ -37,6 +37,8 @@
             <td>
                 <a class="btn btn-danger btn-sm"
                    th:href="@{/users/delete/{id}(id=${user.id})}">Delete</a>
+                <a class="btn btn-primary btn-sm"
+                   th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a>
             </td>
         </tr>
         </tr>
