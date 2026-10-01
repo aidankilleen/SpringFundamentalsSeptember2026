@@ -1,11 +1,20 @@
 package ie.pt.springbootwebapplication;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+
 import java.util.Objects;
 
 public class User {
     int id;
+
+    @NotBlank
     String name;
+
+    @NotBlank
+    @Email
     String email;
+
     boolean active;
 
     public User() {
