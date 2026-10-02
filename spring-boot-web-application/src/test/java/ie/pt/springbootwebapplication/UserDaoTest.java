@@ -20,7 +20,6 @@ public abstract class UserDaoTest {
     @BeforeAll
     static void setupTestRun() {
         System.out.println("*****Starting Tests");
-
     }
 
     @AfterAll
