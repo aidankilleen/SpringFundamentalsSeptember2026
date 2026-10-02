@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.util.List;
 
 @Repository
+@Primary
 public class JdbcTemplateUserDao implements UserDao {
 
     @Autowired

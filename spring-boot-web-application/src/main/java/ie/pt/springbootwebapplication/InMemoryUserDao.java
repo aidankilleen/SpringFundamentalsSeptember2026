@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Primary
 public class InMemoryUserDao implements UserDao {
 
     List<User> users = new ArrayList<User>();
