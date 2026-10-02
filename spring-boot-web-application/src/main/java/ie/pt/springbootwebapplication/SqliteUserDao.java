@@ -13,7 +13,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
-@Primary
 public class SqliteUserDao implements UserDao {
 
     @Value("${spring.datasource.url}")

@@ -30,8 +30,8 @@ public abstract class UserDaoTest {
     @BeforeEach
     void setup() {
         System.out.println("setup()");
-        User addedUser = new User(-1,"John", "john@gmail.com", false);
-        dao().addUser(addedUser);
+        //User addedUser = new User(-1,"John", "john@gmail.com", false);
+        //dao().addUser(addedUser);
         configureTest();
 
     }
@@ -39,17 +39,17 @@ public abstract class UserDaoTest {
     @AfterEach
     void teardown() {
         System.out.println("teardown()");
-        List<User> users = dao().getUsers();
-        List<User> usersToDelete = dao().getUsers()
-                .stream()
-                .filter(user -> {
-                    if (user.getName().equals("John")) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                }).toList();
-        usersToDelete.forEach(user->dao().deleteUser(user.id));
+        //List<User> users = dao().getUsers();
+        //List<User> usersToDelete = dao().getUsers()
+        //        .stream()
+        //        .filter(user -> {
+        //            if (user.getName().equals("John")) {
+        //                return true;
+        //            } else {
+        //                return false;
+        //            }
+        //        }).toList();
+        //usersToDelete.forEach(user->dao().deleteUser(user.id));
     }
 
     @Test
@@ -66,7 +66,13 @@ public abstract class UserDaoTest {
 
     @Test
     void addUserIdIsIgnored() {
-        User user = new User(1000, "Zoe", "zoe@gmail.com", false);
+        //User user = new User(1000, "Zoe", "zoe@gmail.com", false);
+
+        // jpa the id is not ignored - it should be null to get the id created
+        User user = new User();
+        user.setName("Zoe");
+        user.setEmail("zoe@gmail.com");
+        user.setActive(false);
         User addedUser = dao().addUser(user);
         assertNotEquals(1000, addedUser.getId());
     }
